@@ -25,7 +25,7 @@ public class UserEntity {
     private LocalDate createdDate;
 
     private UserEntity modifyBy;
-    private UserEntity modifyDate;
+    private LocalDate modifyDate;
 
     public UserEntity() {
     }
@@ -102,11 +102,11 @@ public class UserEntity {
         this.modifyBy = modifyBy;
     }
 
-    public UserEntity getModifyDate() {
+    public LocalDate getModifyDate() {
         return modifyDate;
     }
 
-    public void setModifyDate(UserEntity modifyDate) {
+    public void setModifyDate(LocalDate modifyDate) {
         this.modifyDate = modifyDate;
     }
 
