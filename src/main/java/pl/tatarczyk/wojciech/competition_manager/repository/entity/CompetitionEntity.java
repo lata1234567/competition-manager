@@ -16,11 +16,13 @@ public class CompetitionEntity {
     private String name;
 
     @Enumerated(EnumType.STRING)
+    @ManyToOne
     private CompetitionSubject subject;
 
     private LocalDate deadline;
 
     @Enumerated(EnumType.STRING)
+    @ManyToOne
     private CompetitionStage stage;
 
     private UserEntity createdBy;
