@@ -27,12 +27,12 @@ public class CompetitionEntity {
     private LocalDate createdDate;
 
     private UserEntity modifyBy;
-    private UserEntity modifyDate;
+    private LocalDate modifyDate;
 
     public CompetitionEntity() {
     }
 
-    public CompetitionEntity(Long id, String name, CompetitionSubject subject, LocalDate deadline, CompetitionStage stage, UserEntity createdBy, LocalDate createdDate, UserEntity modifyBy, UserEntity modifyDate) {
+    public CompetitionEntity(Long id, String name, CompetitionSubject subject, LocalDate deadline, CompetitionStage stage, UserEntity createdBy, LocalDate createdDate, UserEntity modifyBy, LocalDate modifyDate) {
         this.id = id;
         this.name = name;
         this.subject = subject;
@@ -108,11 +108,11 @@ public class CompetitionEntity {
         this.modifyBy = modifyBy;
     }
 
-    public UserEntity getModifyDate() {
+    public LocalDate getModifyDate() {
         return modifyDate;
     }
 
-    public void setModifyDate(UserEntity modifyDate) {
+    public void setModifyDate(LocalDate modifyDate) {
         this.modifyDate = modifyDate;
     }
 
