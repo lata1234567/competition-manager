@@ -1,7 +1,10 @@
 package pl.tatarczyk.wojciech.competition_manager.api.model;
 
+import jakarta.persistence.Entity;
+
 public enum ApplicationStatus {
-    SUBMITTED("Zgłoszony");
+    SUBMITTED("Zgłoszony"),
+    IN_PROGRESS("Sprawdzany");
 
     private String name;
 

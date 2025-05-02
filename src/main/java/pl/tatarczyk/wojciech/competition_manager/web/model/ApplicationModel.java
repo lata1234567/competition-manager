@@ -1,5 +1,7 @@
 package pl.tatarczyk.wojciech.competition_manager.web.model;
 
+import pl.tatarczyk.wojciech.competition_manager.api.model.ApplicationStatus;
+
 import java.time.LocalDate;
 
 public class ApplicationModel {
@@ -8,6 +10,7 @@ public class ApplicationModel {
     private CompetitionModel competition;
     private UserModel submitted;
     private UserModel submittedBy;
+    private ApplicationStatus status;
 
     private UserModel createdBy;
     private LocalDate createdDate;
@@ -63,6 +66,14 @@ public class ApplicationModel {
         this.createdDate = createdDate;
     }
 
+    public ApplicationStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ApplicationStatus status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "ApplicationModel{" +
@@ -70,6 +81,7 @@ public class ApplicationModel {
                 ", competition=" + competition +
                 ", submitted=" + submitted +
                 ", submittedBy=" + submittedBy +
+                ", status=" + status +
                 ", createdBy=" + createdBy +
                 ", createdDate=" + createdDate +
                 '}';

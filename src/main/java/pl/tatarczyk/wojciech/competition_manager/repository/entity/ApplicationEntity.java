@@ -1,13 +1,13 @@
 package pl.tatarczyk.wojciech.competition_manager.repository.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import pl.tatarczyk.wojciech.competition_manager.api.model.ApplicationStatus;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class ApplicationEntity {
+public class ApplicationEntity implements Serializable{
 
     @Id
     @GeneratedValue
@@ -17,20 +17,26 @@ public class ApplicationEntity {
     private UserEntity submitted;
     private UserEntity submittedBy;
 
+
+    @Enumerated(EnumType.STRING)
+//    @Column(name="applicationStatus")
+    private ApplicationStatus status;
+
     private UserEntity createdBy;
     private LocalDate createdDate;
 
     public ApplicationEntity() {
     }
 
-    public ApplicationEntity(Long id, CompetitionEntity competition, UserEntity submitted, UserEntity submittedBy, UserEntity createdBy, LocalDate createdDate) {
-        this.id = id;
-        this.competition = competition;
-        this.submitted = submitted;
-        this.submittedBy = submittedBy;
-        this.createdBy = createdBy;
-        this.createdDate = createdDate;
-    }
+//    public ApplicationEntity(Long id, CompetitionEntity competition, UserEntity submitted, UserEntity submittedBy, ApplicationStatus status, UserEntity createdBy, LocalDate createdDate) {
+//        this.id = id;
+//        this.competition = competition;
+//        this.submitted = submitted;
+//        this.submittedBy = submittedBy;
+//        this.status = status;
+//        this.createdBy = createdBy;
+//        this.createdDate = createdDate;
+//    }
 
     public Long getId() {
         return id;
@@ -80,6 +86,15 @@ public class ApplicationEntity {
         this.createdDate = createdDate;
     }
 
+    public ApplicationStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ApplicationStatus status) {
+        this.status = status;
+    }
+
+
     @Override
     public String toString() {
         return "ApplicationEntity{" +
@@ -87,6 +102,7 @@ public class ApplicationEntity {
                 ", competition=" + competition +
                 ", submitted=" + submitted +
                 ", submittedBy=" + submittedBy +
+                ", status=" + status +
                 ", createdBy=" + createdBy +
                 ", createdDate=" + createdDate +
                 '}';
