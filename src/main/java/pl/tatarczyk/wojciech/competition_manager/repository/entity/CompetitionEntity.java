@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 import pl.tatarczyk.wojciech.competition_manager.api.model.CompetitionStage;
 import pl.tatarczyk.wojciech.competition_manager.api.model.CompetitionSubject;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class CompetitionEntity {
+public class CompetitionEntity implements Serializable {
 
     @Id
     @GeneratedValue
@@ -16,13 +17,15 @@ public class CompetitionEntity {
     private String name;
 
     @Enumerated(EnumType.STRING)
-    @ManyToOne
+    @Column(name = "competitionSubject")
+//    @ManyToOne
     private CompetitionSubject subject;
 
     private LocalDate deadline;
 
     @Enumerated(EnumType.STRING)
-    @ManyToOne
+    @Column(name="competitionStage")
+//    @ManyToOne
     private CompetitionStage stage;
 
     private UserEntity createdBy;

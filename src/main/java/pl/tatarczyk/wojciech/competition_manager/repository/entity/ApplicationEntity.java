@@ -3,10 +3,11 @@ package pl.tatarczyk.wojciech.competition_manager.repository.entity;
 import jakarta.persistence.*;
 import pl.tatarczyk.wojciech.competition_manager.api.model.ApplicationStatus;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class ApplicationEntity {
+public class ApplicationEntity implements Serializable{
 
     @Id
     @GeneratedValue
@@ -16,8 +17,9 @@ public class ApplicationEntity {
     private UserEntity submitted;
     private UserEntity submittedBy;
 
+
     @Enumerated(EnumType.STRING)
-    @ManyToOne
+//    @Column(name="applicationStatus")
     private ApplicationStatus status;
 
     private UserEntity createdBy;
@@ -26,15 +28,15 @@ public class ApplicationEntity {
     public ApplicationEntity() {
     }
 
-    public ApplicationEntity(Long id, CompetitionEntity competition, UserEntity submitted, UserEntity submittedBy, ApplicationStatus status, UserEntity createdBy, LocalDate createdDate) {
-        this.id = id;
-        this.competition = competition;
-        this.submitted = submitted;
-        this.submittedBy = submittedBy;
-        this.status = status;
-        this.createdBy = createdBy;
-        this.createdDate = createdDate;
-    }
+//    public ApplicationEntity(Long id, CompetitionEntity competition, UserEntity submitted, UserEntity submittedBy, ApplicationStatus status, UserEntity createdBy, LocalDate createdDate) {
+//        this.id = id;
+//        this.competition = competition;
+//        this.submitted = submitted;
+//        this.submittedBy = submittedBy;
+//        this.status = status;
+//        this.createdBy = createdBy;
+//        this.createdDate = createdDate;
+//    }
 
     public Long getId() {
         return id;

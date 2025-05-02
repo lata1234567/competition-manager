@@ -3,8 +3,6 @@ package pl.tatarczyk.wojciech.competition_manager.service.mapper;
 import org.junit.jupiter.api.Test;
 import pl.tatarczyk.wojciech.competition_manager.api.model.ApplicationStatus;
 import pl.tatarczyk.wojciech.competition_manager.repository.entity.ApplicationEntity;
-import pl.tatarczyk.wojciech.competition_manager.repository.entity.CompetitionEntity;
-import pl.tatarczyk.wojciech.competition_manager.repository.entity.UserEntity;
 import pl.tatarczyk.wojciech.competition_manager.web.model.ApplicationModel;
 import pl.tatarczyk.wojciech.competition_manager.web.model.CompetitionModel;
 import pl.tatarczyk.wojciech.competition_manager.web.model.UserModel;

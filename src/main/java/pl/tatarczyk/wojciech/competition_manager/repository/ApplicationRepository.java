@@ -1,0 +1,9 @@
+package pl.tatarczyk.wojciech.competition_manager.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import pl.tatarczyk.wojciech.competition_manager.repository.entity.ApplicationEntity;
+
+@Repository
+public interface ApplicationRepository extends JpaRepository<ApplicationEntity,Long> {
+}

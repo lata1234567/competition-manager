@@ -2,12 +2,13 @@ package pl.tatarczyk.wojciech.competition_manager.repository.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class UserEntity {
+public class UserEntity implements Serializable {
 
     @Id
     @GeneratedValue
