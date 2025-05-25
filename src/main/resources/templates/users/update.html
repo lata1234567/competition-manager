@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+</head>
+<body>
+<div>
+  <main>
+    <h1>Update user</h1>
+    <form th:object="${userModel}" action="/users/update" method="post">
+      <div>
+        <label for="name">name</label>
+        <input type="text" id="name" th:field="*{name}">
+      </div>
+
+      <div>
+        <label for="surname">surname</label>
+        <input type="text" id="surname" th:field="*{surname}">
+      </div>
+
+      <div>
+        <label for="login">login</label>
+        <input type="text" id="login" th:field="*{login}">
+      </div>
+
+      <div>
+        <label for="password">password</label>
+        <input type="text" id="password" th:field="*{password}">
+      </div>
+
+      <div>
+        <input type="hidden" th:field="*{id}">
+      </div>
+
+      <div>
+        <input type="hidden" th:field="*{createdBy}">
+      </div>
+
+      <div>
+        <input type="hidden" th:field="*{createdDate}">
+      </div>
+
+      <div>
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </main>
+</div>
+</body>
+</html>
