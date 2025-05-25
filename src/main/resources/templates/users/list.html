@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of users</title>
+</head>
+<body>
+<div>
+    <main>
+        <div class="container">
+            <h1>List of users</h1>
+            <span>
+                <a th:href="@{users/create}">Create user</a>
+            </span>
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Surname</th>
+                        <th scope="col">Login</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Created by</th>
+                        <th scope="col">Creation date</th>
+                        <th scope="col">Modified by</th>
+                        <th scope="col">Modification date</th>
+                        <th scope="col">Modify</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user, status : ${users}">
+                        <th scope="row" th:text="${status.count}">1</th>
+                        <td th:text="${user.name}"></td>
+                        <td th:text="${user.surname}"></td>
+                        <td th:text="${user.login}"></td>
+                        <td th:text="${user.password}"></td>
+                        <td th:text="${user.createdBy}"></td>
+                        <td th:text="${user.createdDate}"></td>
+                        <td th:text="${user.modifyBy}"></td>
+                        <td th:text="${user.modifyDate}"></td>
+                        <td>
+                            <a th:href="@{users/update/{id}(id=${user.id})}">Modify</a>
+                        </td>
+                        <td>
+                            <a th:href="@{users/delete/{id}(id=${user.id})}">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

@@ -7,6 +7,7 @@ import pl.tatarczyk.wojciech.competition_manager.repository.entity.UserEntity;
 import pl.tatarczyk.wojciech.competition_manager.service.mapper.UserMapper;
 import pl.tatarczyk.wojciech.competition_manager.web.model.UserModel;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -40,6 +41,8 @@ public class UserService {
     public UserModel create(UserModel userModel) {
         LOGGER.info("create(" + userModel + ")");
 
+        userModel.setCreatedDate(LocalDate.now());
+
         UserEntity mappedUserEntity = userMapper.from(userModel);
         UserEntity savedUserEntity = userRepository.save(mappedUserEntity);
 
@@ -63,6 +66,8 @@ public class UserService {
 
     public UserModel update(UserModel userModel) {
         LOGGER.info("Update("+userModel+")");
+
+        userModel.setModifyDate(LocalDate.now());
 
         UserEntity mappedUserEntity = userMapper.from(userModel);
         UserEntity updateUserEntity = userRepository.save(mappedUserEntity);
