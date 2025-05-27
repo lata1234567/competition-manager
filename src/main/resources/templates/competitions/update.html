@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update competition</title>
+</head>
+<body>
+<div>
+    <main>
+        <div>
+            <h1>Create competition</h1>
+            <div>
+                <form th:object="${competitionModel}" action="/competitions/update" method="post">
+                    <div>
+                        <label for="name">name</label>
+                        <input type="text" id="name" th:field=*{name}>
+                    </div>
+
+                    <div>
+                        <label for="deadline">deadline</label>
+                        <input type="date" id="deadline" th:field=*{deadline}>
+                    </div>
+
+                    <div>
+                        <select name="subject" id="subject" class="form-select">
+                            <option th:each="subject : ${T(pl.tatarczyk.wojciech.competition_manager.api.model.CompetitionSubject).values()}"
+                                    th:value="${subject}"
+                                    th:text="${subject}"
+                                    th:selected="${subject == competitionModel.subject}"
+                            ></option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <select name="stage" id="stage" class="form-select">
+                            <option th:each="stage : ${T(pl.tatarczyk.wojciech.competition_manager.api.model.CompetitionStage).values()}"
+                                    th:value="${stage}"
+                                    th:text="${stage.getName()}"
+                                    th:selected="${stage == competitionModel.stage}"
+                            ></option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <input type="hidden" th:field="*{id}">
+                    </div>
+
+                    <div>
+                        <input type="hidden" th:field="*{createdDate}">
+                    </div>
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of competitions</title>
+</head>
+<body>
+<div>
+  <main>
+    <div>
+      <h1>List of competitions</h1>
+      <div>
+        <table>
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">subject</th>
+            <th scope="col">deadline</th>
+            <th scope="col">stage</th>
+            <th scope="col">created by</th>
+            <th scope="col">created date</th>
+            <th scope="col">modify by</th>
+            <th scope="col">modify date</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="competition, status : ${competitions}">
+            <th scope="row" th:text="${status.count}">1</th>
+            <td th:text="${competition.name}"></td>
+            <td th:text="${competition?.subject?.name}"></td>
+            <td th:text="${competition.deadline}"></td>
+            <td th:text="${competition?.stage?.name}"></td>
+            <td th:text="${competition.createdBy}"></td>
+            <td th:text="${competition.createdDate}"></td>
+            <td th:text="${competition.modifyBy}"></td>
+            <td th:text="${competition.modifyDate}"></td>
+            <td>
+              <a th:href="@{competitions/update/{id}(id=${competition.id})}">Update</a>
+            </td>
+            <td>
+              <a th:href="@{competitions/delete/{id}(id=${competition.id})}">Delete</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

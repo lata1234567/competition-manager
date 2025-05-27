@@ -11,6 +11,8 @@ public class CompetitionModel {
     private CompetitionSubject subject;
     private CompetitionStage stage;
 
+    private LocalDate deadline;
+
     private UserModel createdBy;
     private LocalDate createdDate;
 
@@ -84,6 +86,14 @@ public class CompetitionModel {
         this.modifyDate = modifyDate;
     }
 
+    public LocalDate getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(LocalDate deadline) {
+        this.deadline = deadline;
+    }
+
     @Override
     public String toString() {
         return "CompetitionModel{" +
@@ -91,6 +101,7 @@ public class CompetitionModel {
                 ", name='" + name + '\'' +
                 ", subject=" + subject +
                 ", stage=" + stage +
+                ", deadline=" + deadline +
                 ", createdBy=" + createdBy +
                 ", createdDate=" + createdDate +
                 ", modifyBy=" + modifyBy +

@@ -7,6 +7,7 @@ import pl.tatarczyk.wojciech.competition_manager.repository.entity.CompetitionEn
 import pl.tatarczyk.wojciech.competition_manager.service.mapper.CompetitionMapper;
 import pl.tatarczyk.wojciech.competition_manager.web.model.CompetitionModel;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -40,6 +41,8 @@ public class CompetitionService {
     public CompetitionModel create(CompetitionModel competitionModel){
         LOGGER.info("create("+competitionModel+")");
 
+        competitionModel.setCreatedDate(LocalDate.now());
+
         CompetitionEntity mappedCompetitionEntity = competitionMapper.from(competitionModel);
         CompetitionEntity savedCompetitionEntity = competitionRepository.save(mappedCompetitionEntity);
 
@@ -63,6 +66,8 @@ public class CompetitionService {
 
     public CompetitionModel update(CompetitionModel competitionModel){
         LOGGER.info("update("+competitionModel+")");
+
+        competitionModel.setModifyDate(LocalDate.now());
 
         CompetitionEntity mappedCompetitionEntity = competitionMapper.from(competitionModel);
         CompetitionEntity updateCompetitionEntity = competitionRepository.save(mappedCompetitionEntity);

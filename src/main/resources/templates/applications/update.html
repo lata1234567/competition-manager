@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update application</title>
+</head>
+<body>
+<div>
+    <main>
+        <h1>Update application</h1>
+        <form th:object="${applicationModel}" action="/applications/update" method="post">
+            <div>
+                <select th:field="*{competition.id}" class="form-select">
+                    <option th:each="competition : ${competitions}"
+                            th:value="${competition.id}"
+                            th:text="${T(pl.tatarczyk.wojciech.competition_manager.service.decorator.CompetitionDecorator).decorate(competition)}"
+                            th:selected="${competition.id == applicationModel.competition.id}"
+                    ></option>
+
+                </select>
+            </div>
+
+            <div>
+                <select th:field="*{submitted.id}" class="form-select">
+                    <option th:each="submitted : ${users}"
+                            th:value="${submitted.id}"
+                            th:text="${T(pl.tatarczyk.wojciech.competition_manager.service.decorator.UserDecorator).decorate(submitted)}"
+                            th:selected="${submitted.id == applicationModel.submitted.id}"
+                    ></option>
+
+                </select>
+            </div>
+
+            <div>
+                <input type="hidden" th:field="*{id}">
+            </div>
+
+            <div>
+                <input type="hidden" th:field="*{createdDate}">
+            </div>
+
+            <div>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </main>
+</div>
+</body>
+</html>
