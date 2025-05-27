@@ -13,30 +13,23 @@ public class ApplicationEntity implements Serializable{
     @GeneratedValue
     private Long id;
 
+    @ManyToOne
     private CompetitionEntity competition;
+    @ManyToOne
     private UserEntity submitted;
+    @ManyToOne
     private UserEntity submittedBy;
 
 
     @Enumerated(EnumType.STRING)
-//    @Column(name="applicationStatus")
     private ApplicationStatus status;
 
+    @ManyToOne
     private UserEntity createdBy;
     private LocalDate createdDate;
 
     public ApplicationEntity() {
     }
-
-//    public ApplicationEntity(Long id, CompetitionEntity competition, UserEntity submitted, UserEntity submittedBy, ApplicationStatus status, UserEntity createdBy, LocalDate createdDate) {
-//        this.id = id;
-//        this.competition = competition;
-//        this.submitted = submitted;
-//        this.submittedBy = submittedBy;
-//        this.status = status;
-//        this.createdBy = createdBy;
-//        this.createdDate = createdDate;
-//    }
 
     public Long getId() {
         return id;

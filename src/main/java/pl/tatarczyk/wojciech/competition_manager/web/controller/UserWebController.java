@@ -25,10 +25,10 @@ public class UserWebController {
     }
 
     @GetMapping
-    public  String list(Model model){
+    public  String list(ModelMap modelMap){
         LOGGER.info("list()");
         List<UserModel> users = userService.list();
-        model.addAttribute("users",users);
+        modelMap.addAttribute("users",users);
         return "users/list";
     }
 
@@ -82,7 +82,7 @@ public class UserWebController {
 
     @GetMapping(value = "/delete/{id}")
     public String delete(@PathVariable("id") Long id){
-        LOGGER.info("delete()");
+        LOGGER.info("delete("+id+")");
         userService.delete(id);
         return "redirect:/users";
     }

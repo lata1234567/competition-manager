@@ -22,9 +22,11 @@ public class UserEntity implements Serializable {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<RoleEntity> roles = new HashSet<>();
 
+    @ManyToOne
     private UserEntity createdBy;
     private LocalDate createdDate;
 
+    @ManyToOne
     private UserEntity modifyBy;
     private LocalDate modifyDate;
 

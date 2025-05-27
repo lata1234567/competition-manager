@@ -1,6 +1,7 @@
 package pl.tatarczyk.wojciech.competition_manager.repository.entity;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.tatarczyk.wojciech.competition_manager.api.model.CompetitionStage;
 import pl.tatarczyk.wojciech.competition_manager.api.model.CompetitionSubject;
 
@@ -21,6 +22,7 @@ public class CompetitionEntity implements Serializable {
 //    @ManyToOne
     private CompetitionSubject subject;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate deadline;
 
     @Enumerated(EnumType.STRING)
@@ -28,9 +30,11 @@ public class CompetitionEntity implements Serializable {
 //    @ManyToOne
     private CompetitionStage stage;
 
+    @ManyToOne
     private UserEntity createdBy;
     private LocalDate createdDate;
 
+    @ManyToOne
     private UserEntity modifyBy;
     private LocalDate modifyDate;
 
