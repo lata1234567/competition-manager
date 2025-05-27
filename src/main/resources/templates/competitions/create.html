@@ -7,44 +7,52 @@
 <body>
 <div>
     <main>
+        <div>
+            <h1>Create competition</h1>
 
-        <h1>Create competition</h1>
-
-        <form th:object="${competitionModel}" action="/competitions" method="post">
             <div>
-                <label for="name">name</label>
-                <input type="text" id="name" th:field="*{name}">
+
+                <span>
+                    <a href="#" th:href="@{/competitions}">Competition list</a>
+                </span>
             </div>
 
             <div>
-                <label for="deadline">deadline</label>
-                <input type="date" id="deadline" th:field="*{deadline}">
+                <form th:object="${competitionModel}" action="/competitions" method="post">
+                    <div>
+                        <label for="name">name</label>
+                        <input type="text" id="name" th:field="*{name}">
+                    </div>
+
+                    <div>
+                        <label for="deadline">deadline</label>
+                        <input type="date" id="deadline" th:field="*{deadline}">
+                    </div>
+
+                    <div>
+                        <select name="subject" id="subject" class="form-select">
+                            <option th:each="subject : ${T(pl.tatarczyk.wojciech.competition_manager.api.model.CompetitionSubject).values()}"
+                                    th:value="${subject}"
+                                    th:text="${subject}"
+
+                            ></option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <select name="stage" id="stage" class="form-select">
+                            <option th:each="stage : ${T(pl.tatarczyk.wojciech.competition_manager.api.model.CompetitionStage).values()}"
+                                    th:valie="${stage}"
+                                    th:text="${stage}"
+                            ></option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
             </div>
-
-            <div>
-                <select name="subject" id="subject" class="form-select">
-                    <option th:each="subject : ${T(pl.tatarczyk.wojciech.competition_manager.api.model.CompetitionSubject).values()}"
-                            th:value="${subject}"
-                            th:text="${subject}"
-
-                    ></option>
-                </select>
-            </div>
-
-            <div>
-                <select name="stage" id="stage" class="form-select">
-                    <option th:each="stage : ${T(pl.tatarczyk.wojciech.competition_manager.api.model.CompetitionStage).values()}"
-                            th:valie="${stage}"
-                            th:text="${stage}"
-                    ></option>
-                </select>
-            </div>
-            <div>
-                <button type="submit">Save</button>
-            </div>
-        </form>
-
-
+        </div>
     </main>
 </div>
 </body>

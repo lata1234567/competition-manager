@@ -7,42 +7,53 @@
 <body>
 <div>
     <main>
-        <h1>Update application</h1>
-        <form th:object="${applicationModel}" action="/applications/update" method="post">
-            <div>
-                <select th:field="*{competition.id}" class="form-select">
-                    <option th:each="competition : ${competitions}"
-                            th:value="${competition.id}"
-                            th:text="${T(pl.tatarczyk.wojciech.competition_manager.service.decorator.CompetitionDecorator).decorate(competition)}"
-                            th:selected="${competition.id == applicationModel.competition.id}"
-                    ></option>
+        <div>
+            <h1>Update application</h1>
 
-                </select>
+            <div>
+                <span>
+                    <a href="#" th:href="@{/applications}">Application list</a>
+                </span>
             </div>
 
             <div>
-                <select th:field="*{submitted.id}" class="form-select">
-                    <option th:each="submitted : ${users}"
-                            th:value="${submitted.id}"
-                            th:text="${T(pl.tatarczyk.wojciech.competition_manager.service.decorator.UserDecorator).decorate(submitted)}"
-                            th:selected="${submitted.id == applicationModel.submitted.id}"
-                    ></option>
+                <form th:object="${applicationModel}" action="/applications/update" method="post">
+                    <div>
+                        <select th:field="*{competition.id}" class="form-select">
+                            <option th:each="competition : ${competitions}"
+                                    th:value="${competition.id}"
+                                    th:text="${T(pl.tatarczyk.wojciech.competition_manager.service.decorator.CompetitionDecorator).decorate(competition)}"
+                                    th:selected="${competition.id == applicationModel.competition.id}"
+                            ></option>
 
-                </select>
-            </div>
+                        </select>
+                    </div>
 
-            <div>
-                <input type="hidden" th:field="*{id}">
-            </div>
+                    <div>
+                        <select th:field="*{submitted.id}" class="form-select">
+                            <option th:each="submitted : ${users}"
+                                    th:value="${submitted.id}"
+                                    th:text="${T(pl.tatarczyk.wojciech.competition_manager.service.decorator.UserDecorator).decorate(submitted)}"
+                                    th:selected="${submitted.id == applicationModel.submitted.id}"
+                            ></option>
 
-            <div>
-                <input type="hidden" th:field="*{createdDate}">
-            </div>
+                        </select>
+                    </div>
 
-            <div>
-                <button type="submit">Save</button>
+                    <div>
+                        <input type="hidden" th:field="*{id}">
+                    </div>
+
+                    <div>
+                        <input type="hidden" th:field="*{createdDate}">
+                    </div>
+
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </main>
 </div>
 </body>
