@@ -8,6 +8,11 @@
 <div>
   <main>
     <h1>Update user</h1>
+    <div>
+      <span>
+      <a href="#" th:href="@{/users}">user list</a>
+      </span>
+    </div>
     <form th:object="${userModel}" action="/users/update" method="post">
       <div>
         <label for="name">name</label>

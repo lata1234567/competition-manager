@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+<div>
+  <main>
+    <div>
+      <h1>Dashboard</h1>
+      <div>
+        <table>
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">create</th>
+            <th scope="col">list</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>
+              <a href="#" th:href="@{/users/create}">create user</a>
+            </td>
+            <td>
+              <a href="#" th:href="@{/users}">user list</a>
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">2</th>
+            <td>
+              <a href="#" th:href="@{/competitions/create}">create competition</a>
+            </td>
+            <td>
+              <a href="#" th:href="@{/competitions}">competition list</a>
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">3</th>
+            <td>
+              <a href="#" th:href="@{/applications/create}">create application</a>
+            </td>
+            <td>
+              <a href="#" th:href="@{/applications}">application list</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

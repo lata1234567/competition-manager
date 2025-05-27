@@ -9,9 +9,14 @@
     <main>
         <div class="container">
             <h1>List of users</h1>
-            <span>
-                <a th:href="@{users/create}">Create user</a>
-            </span>
+            <div>
+                <span>
+                    <a th:href="@{/dashboard}">Dashboard</a>
+                </span>
+                <span>
+                  <a th:href="@{/users/create}">Create user</a>
+                </span>
+            </div>
             <div>
                 <table>
                     <thead>

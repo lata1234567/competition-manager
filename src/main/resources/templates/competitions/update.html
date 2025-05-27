@@ -10,6 +10,11 @@
         <div>
             <h1>Create competition</h1>
             <div>
+                <span>
+                <a href="#" th:href="@{/competitions}">Competition list</a>
+                </span>
+            </div>
+            <div>
                 <form th:object="${competitionModel}" action="/competitions/update" method="post">
                     <div>
                         <label for="name">name</label>
