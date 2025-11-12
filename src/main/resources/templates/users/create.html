@@ -6,7 +6,9 @@
 </head>
 <body>
 <div>
+    <div th:replace="~{/fragments/header}">header</div>
     <main>
+
         <h1>Create new user</h1>
         <div>
             <span>
@@ -39,6 +41,7 @@
             </div>
         </form>
     </main>
+    <div th:replace="~{/fragments/footer}">footer</div>
 </div>
 </body>
 </html>
