@@ -1,8 +1,12 @@
 package pl.tatarczyk.wojciech.competition_manager.service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.tatarczyk.wojciech.competition_manager.api.exception.RoleNotFoundException;
 import pl.tatarczyk.wojciech.competition_manager.api.exception.UserNotFoundException;
+import pl.tatarczyk.wojciech.competition_manager.repository.RoleRepository;
 import pl.tatarczyk.wojciech.competition_manager.repository.UserRepository;
+import pl.tatarczyk.wojciech.competition_manager.repository.entity.RoleEntity;
 import pl.tatarczyk.wojciech.competition_manager.repository.entity.UserEntity;
 import pl.tatarczyk.wojciech.competition_manager.service.mapper.UserMapper;
 import pl.tatarczyk.wojciech.competition_manager.web.model.UserModel;
@@ -19,10 +23,14 @@ public class UserService {
 
     private UserMapper userMapper;
     private UserRepository userRepository;
+    private PasswordEncoder passwordEncoder;
+    private RoleRepository roleRepository;
 
-    public UserService(UserMapper userMapper, UserRepository userRepository) {
+    public UserService(UserMapper userMapper, UserRepository userRepository, PasswordEncoder passwordEncoder, RoleRepository roleRepository) {
         this.userMapper = userMapper;
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.roleRepository = roleRepository;
     }
 
     public List<UserModel> list() {
@@ -38,12 +46,26 @@ public class UserService {
         return userModels;
     }
 
+//    studentModel.setPassword(passwordEncoder.encode(studentModel.getPassword()));
+//    StudentEntity mappedEntity = studentMapper.from(studentModel);
+//
+//    RoleEntity studentRoleEntity = roleRepository.findByName(StudentRole.USER.getName());
+//        mappedEntity.getRoles().add(studentRoleEntity);
+
     public UserModel create(UserModel userModel) {
         LOGGER.info("create(" + userModel + ")");
 
         userModel.setCreatedDate(LocalDate.now());
+        userModel.setPassword(passwordEncoder.encode(userModel.getPassword()));
 
         UserEntity mappedUserEntity = userMapper.from(userModel);
+        Optional<RoleEntity> optionalRoleEntity = roleRepository.findById(1L);
+        RoleEntity userRoleEntity = optionalRoleEntity.orElseThrow(
+                ()-> new RoleNotFoundException("Not found Role with id " + 1)
+        );
+
+        mappedUserEntity.getRoles().add(userRoleEntity);
+
         UserEntity savedUserEntity = userRepository.save(mappedUserEntity);
 
         UserModel savedUserModel = userMapper.from(savedUserEntity);
