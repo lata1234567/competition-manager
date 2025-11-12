@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="header">
+    <div>
+        <nav>
+            <div class="container-fluid"></div>
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarSupportedContent">
+                <div class="navbar-nav">
+                    <span>Welcome, </span>
+                    <span th:text="${#authentication.name}"></span>
+
+                    <span class="nav-item">
+                            <a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" th:href="@{/logout}">Logout</a>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</div>
+</body>
+</html>

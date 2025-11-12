@@ -6,51 +6,53 @@
 </head>
 <body>
 <div>
-  <main>
-    <h1>Update user</h1>
-    <div>
+    <div th:replace="~{/fragments/header}">header</div>
+    <main>
+        <h1>Update user</h1>
+        <div>
       <span>
       <a href="#" th:href="@{/users}">user list</a>
       </span>
-    </div>
-    <form th:object="${userModel}" action="/users/update" method="post">
-      <div>
-        <label for="name">name</label>
-        <input type="text" id="name" th:field="*{name}">
-      </div>
+        </div>
+        <form th:object="${userModel}" action="/users/update" method="post">
+            <div>
+                <label for="name">name</label>
+                <input type="text" id="name" th:field="*{name}">
+            </div>
 
-      <div>
-        <label for="surname">surname</label>
-        <input type="text" id="surname" th:field="*{surname}">
-      </div>
+            <div>
+                <label for="surname">surname</label>
+                <input type="text" id="surname" th:field="*{surname}">
+            </div>
 
-      <div>
-        <label for="login">login</label>
-        <input type="text" id="login" th:field="*{login}">
-      </div>
+            <div>
+                <label for="login">login</label>
+                <input type="text" id="login" th:field="*{login}">
+            </div>
 
-      <div>
-        <label for="password">password</label>
-        <input type="text" id="password" th:field="*{password}">
-      </div>
+            <div>
+                <label for="password">password</label>
+                <input type="text" id="password" th:field="*{password}">
+            </div>
 
-      <div>
-        <input type="hidden" th:field="*{id}">
-      </div>
+            <div>
+                <input type="hidden" th:field="*{id}">
+            </div>
 
-      <div>
-        <input type="hidden" th:field="*{createdBy}">
-      </div>
+            <div>
+                <input type="hidden" th:field="*{createdBy}">
+            </div>
 
-      <div>
-        <input type="hidden" th:field="*{createdDate}">
-      </div>
+            <div>
+                <input type="hidden" th:field="*{createdDate}">
+            </div>
 
-      <div>
-        <button type="submit">Save</button>
-      </div>
-    </form>
-  </main>
+            <div>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </main>
+    <div th:replace="~{/fragments/footer}">footer</div>
 </div>
 </body>
 </html>
