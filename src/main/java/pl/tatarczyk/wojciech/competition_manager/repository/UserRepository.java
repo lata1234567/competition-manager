@@ -6,4 +6,5 @@ import pl.tatarczyk.wojciech.competition_manager.repository.entity.UserEntity;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity,Long> {
+    UserEntity findByLogin(String username);
 }

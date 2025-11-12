@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.logging.Logger;
 
 @Controller
-@RequestMapping
+@RequestMapping(value = "/homePage")
 public class HomePageWebController {
     private static final Logger LOGGER = Logger.getLogger(HomePageWebController.class.getName());
 
-    @GetMapping(value = "/")
+    @GetMapping
     public String homePageView() {
         LOGGER.info("homePageView()");
 
