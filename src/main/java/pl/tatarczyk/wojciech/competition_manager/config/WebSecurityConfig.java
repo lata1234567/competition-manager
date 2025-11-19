@@ -42,6 +42,7 @@ public class WebSecurityConfig {
                                 .requestMatchers(HttpMethod.POST, "/users").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/users/create").permitAll()
 //                                .requestMatchers("/**").hasAnyRole("USER")
+                                .requestMatchers("/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
